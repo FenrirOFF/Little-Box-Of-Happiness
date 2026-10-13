@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little box of happiness ♡</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe4ee, #eee4ff);
+      color: #70445c;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 35px 25px;
+      margin: 20px;
+      border-radius: 25px;
+      max-width: 340px;
+      box-shadow: 0 10px 35px #d6a9c566;
+    }
+
+    h1 {
+      color: #d66b9b;
+      font-size: 28px;
+    }
+
+    #message {
+      min-height: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 19px;
+      line-height: 1.5;
+    }
+
+    button {
+      background: #ee91b6;
+      color: white;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .heart {
+      font-size: 40px;
+    }
+
+    .footer {
+      font-size: 12px;
+      margin-top: 25px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="heart"></div>
+
+    <h1>Pour toi, qui le mérite plus que tout au monde ♡</h1>
+
+    <p></p>
+    <p>Un petit rappel de ce que tu représente pour moi... </p>
+
+    <div id="message" aria-live="polite">
+      Tu es vraiment une belle personne, tu sais? ;) 
+    </div>
+
+    <button onclick="newMessage()">
+      ♡ Encore un petit mot ♡
+    </button>
+
+<p id="counter" style="font-size: 14px; margin-top: 15px;">
+  Petits mots découverts : 0 / 12 ♡
+</p>
+
+    <div id="secret" style="display: none; margin-top: 25px;">
+      <p style="font-size: 24px;">✨ ♡ ✨</p>
+      <h2>Un petit secret...</h2>
+      <p>
+        J'espère que j'ai réussi à te faire sourire 😊. Sâche qu'à mes yeux, te voir sourire est la plus belle chose sur terre. ♡
+      </p>
+    </div>
+
+  </main>
+
+  <script>
+    // Your JavaScript code stays here!
+  </script>
+</body>
+</html>
+
+    <p class="footer">
+      Fait avec un peu de code et beaucoup de cœur haha.
+    </p>
+  </main>
+
+  
+<script>
+  const messages = [
+    "J'espère que ta journée est aussi belle que ton sourire. ♡",
+    "Petit rappel que tu mérites plein de belles choses.",
+    "J'espère que ce petit message te fera sourire, même juste un peu. :)",
+    "Félicitations! T'as gagné... absolument rien. Mais t'as quand même gagné un compliment.",
+    "Ce message a été approuvé par 9 fées sur 10. La dixième dormait. 🧚",
+    "Alerte importante : bois de l'eau et continue d'être toi-même. Merci de ta collaboration. ;)",
+    "Il y a des personnes avec qui c'est plus qu'agréable de parler. Et tu en fais partie. ♡",
+    "Tu as une façon bien à toi de rendre les journées plus amusantes. :)",
+    "Je vais pas faire un long discours, mais t'es vraiment quelqu'un de spécial. <3",
+    "Le monde est un peu plus beau avec toi dedans. ♡",
+    "Petit message sorti de nulle part, juste pour te souhaiter une belle journée!",
+    "Si tu as souri en lisant ça, mission accomplie. 😌"
+  ];
+
+  let lastIndex = -1;
+  let discovered = new Set();
+  const totalMessages = messages.length;
+  let clickCount = 0;
+
+  function newMessage() {
+  clickCount++;
+
+  let index;
+
+  do {
+    index = Math.floor(Math.random() * messages.length);
+  } while (index === lastIndex);
+
+  lastIndex = index;
+
+  document.getElementById("message").textContent =
+    messages[index];
+
+  // Count only messages she hasn't seen before
+  discovered.add(index);
+
+  document.getElementById("counter").textContent =
+    `Petits mots découverts : ${discovered.size} / ${totalMessages} ♡`;
+
+  // Unlock the secret message after 5 clicks
+  if (clickCount === 5) {
+    document.getElementById("secret").style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
+
